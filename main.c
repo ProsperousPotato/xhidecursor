@@ -24,7 +24,6 @@ int main(void) {
     }
     r = XDefaultRootWindow(d);
 
-    xi_select_events(XI_RawKeyPress);
     xi_select_events(XI_RawMotion);
 
     XFixesHideCursor(d, r);

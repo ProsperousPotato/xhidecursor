@@ -5,7 +5,7 @@
 static void xi_select_events(int);
 
 static Display *d;
-static Window r; // root-window
+static Window r;
 
 void xi_select_events(const int event) {
     unsigned char mask[3] = {None};
@@ -23,7 +23,12 @@ int main(void) {
         return 1;
     }
     r = XDefaultRootWindow(d);
+
     xi_select_events(XI_RawKeyPress);
+    xi_select_events(XI_RawMotion);
+
+    XFixesHideCursor(d, r);
+
     XEvent e;
     XGenericEventCookie *c;
     while (!XNextEvent(d, &e)) {

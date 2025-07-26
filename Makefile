@@ -23,7 +23,7 @@ CFLAGS += -lX11 -lXfixes -lXi
 all: xhidecursor
 
 xhidecursor: main.c Makefile
-        $(CC) $(CFLAGS) -o $@ main.c
+	$(CC) $(CFLAGS) -o $@ main.c
 
 install: all
 	install -D xhidecursor $(DESTDIR)$(PREFIX)/xhidecursor

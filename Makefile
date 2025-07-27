@@ -17,8 +17,9 @@ FREETYPEINC = ${X11INC}/freetype2
 
 CFLAGS += -I${X11INC} -I${FREETYPEINC}
 CFLAGS += -L${X11LIB}
-CFLAGS += -lX11 -lXfixes -lXi
 #
+
+CFLAGS += -lX11 -lXfixes -lXi
 
 all: xhidecursor
 

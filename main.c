@@ -1,5 +1,7 @@
 #include <X11/extensions/XInput2.h>
 
+#include <unistd.h>
+
 #include <stdio.h>
 
 static void xi_select_events(int);
@@ -18,6 +20,12 @@ void xi_select_events(const int event) {
 }
 
 int main(void) {
+
+#ifdef __OpenBSD__
+    if (pledge("stdio unix inet rpath", NULL) == -1)
+        fprintf(stderr, "pledge: failed\n");
+#endif
+
     if (!(d = XOpenDisplay(NULL))) {
         printf("Couldn't open Display.\n");
         return 1;

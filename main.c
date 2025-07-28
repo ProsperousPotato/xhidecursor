@@ -23,7 +23,7 @@ int main(void) {
 
 #ifdef __OpenBSD__
     if (pledge("stdio unix inet rpath", NULL) == -1)
-        fprintf(stderr, "pledge: failed\n");
+        fprintf(stderr, "pledge\n");
 #endif
 
     if (!(d = XOpenDisplay(NULL))) {
